@@ -1,0 +1,30 @@
+
+
+.mdl-mini-footer{
+    justify-content: center;
+    margin-top:3%;
+  /*  display: block !important; */
+
+  }
+
+
+  .mdl-layout__drawer{
+/*    width: 70%; */
+    border-right: 0px;
+  }
+
+.is-visible{
+      width: 80% !important; 
+}
+
+
+
+::-webkit-scrollbar{
+    width: 6px;    
+}
+
+::-webkit-scrollbar-thumb{    
+    border-radius: 2px;
+    background: rgb(111,111,111);    
+    background: -webkit-linear-gradient(rgb(200,200,200), rgb(150,150,150));
+}

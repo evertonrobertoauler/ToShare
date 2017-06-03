@@ -1,0 +1,68 @@
+<!-- <div class="mdl-grid author-grid" mdl-shadow="4"> -->
+  
+ <!--  <div class="mdl-grid"> -->
+   <mdl-card class="author-card" mdl-shadow="4">
+    <div class="widget-author mdl-cell mdl-cell--12-col" style="margin-top:0px">
+      <div class="widget-author__image-container">
+        <div class="widget-author__avatar--blurred">
+          <img src="assets/images/logo.png" alt="Avatar image" width="90" height="90">
+        </div>
+        <img class="widget-author__avatar" src="assets/images/profilepic.png" alt="Avatar image" width="90" height="90">
+      </div>
+      <div class="row" style="padding-top: 7%;">
+        <div class="col-12">
+          <h4 class="author-name">Praveen Rana</h4>
+          <p style="padding: 2%;">I am a full stack web developer at <br><strong>Tata Consultancy Services</strong>
+          <br>          
+          <span>Hitting keyboard untill something good happens, then hit <strong>GYM</strong> </span>          
+          </p>
+        </div>
+      </div>
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone mdl-cell--2-col-tablet">
+          <a class="nav-link social-icon" target="_blank" href="https://www.facebook.com/praveen.rana.754">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone mdl-cell--2-col-tablet">
+          <a class="nav-link social-icon" target="_blank" href="http://linkedin.com/in/praveen-kumar-45767790">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone mdl-cell--2-col-tablet ">
+          <a class="nav-link social-icon" target="_blank" href="http://stackoverflow.com/users/6214945/praveen-rana">
+            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--1-col-phone mdl-cell--2-col-tablet">
+          <a class="nav-link social-icon"  target="_blank" href="https://github.com/ranavc32">
+            <i class="fa fa-github-alt" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+<hr class="mdl-layout--small-screen-only">
+<nav class="mdl-navigation mdl-layout--small-screen-only">
+      <a class="mdl-navigation__link" routerLink="/posts">Blog</a>      
+      <!-- <a class="mdl-navigation__link" routerLink="/aboutme">About me</a> -->
+      <a class="mdl-navigation__link" routerLink="/posts/contact">Contact</a>      
+      
+</nav>
+
+<hr>
+  <span class="category-chips"  >
+    <span *ngFor="let category of categories">
+    <div class="md-chip indigo"  *ngIf="category.postcount > 0"  >    
+    <span class="md-chip-text" >
+      <a [routerLink]="['category', category.value]">
+          <span class="mdl-badge" [attr.data-badge]="category.postcount">{{ category.value }}</span>
+      </a>
+    </span>
+    </div> 
+  </span>
+  </span>
+
+   </mdl-card>

@@ -1,0 +1,34 @@
+
+
+.bg-primary {
+    background-color: #8e99a2!important;
+}
+
+.logo-text{
+    font-size: 2.2em; 
+    font-family: 'Luckiest Guy', cursive;    
+}
+
+.bg-faded{
+    background-color: #51ab6d;
+}
+
+.navbar-toggler{
+    margin-top:4%;
+}
+
+.navbar-toggleable-md .navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
+
+.my-collapse{
+    padding-left: 5%;
+    padding-top: 2%;   
+}
+
+
+
+
+.nav-btn {
+    color: white;
+}

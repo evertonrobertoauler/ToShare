@@ -1,0 +1,138 @@
+.spinner {
+  width: 50px;
+  height: 40px;
+  position: fixed;
+  left:48.4%;
+  top:50%;
+  z-index: 3;
+  
+  text-align: center;
+  font-size: 10px;
+
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.container-fluid , spinner-container {  
+  height: 100vh;
+  display: flex;
+  justify-content: center;        
+}
+
+.vertically-centered{
+ align-self: center; 
+ z-index: 1;
+ color:white;
+ 
+ /* background-color: rgba(245, 245, 245,0.34) */ 
+}
+
+
+.layer {
+    background-color: rgba(19, 18, 18, 0.69);;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mdl-button:disabled{
+  background-color:rgba(158,158,158, 0.8);
+  color: white;
+  
+}
+
+input:-webkit-autofill{
+  background-color: none !important;
+}
+
+
+/* media queries */
+
+@media (max-width: 575px) { 
+  .vertically-centered { 
+      width: 80%; 
+      padding: 4%;
+    }
+    .spinner{
+      left: 43%
+    }
+
+ }
+
+
+@media (min-width: 575px) { 
+
+  .vertically-centered { 
+      width: 70%; 
+      padding: 3%;
+    }
+ }
+
+
+@media (min-width: 767px) {
+  .vertically-centered { 
+      width: 60%; 
+      padding: 3%;
+    }
+ }
+
+
+@media (min-width: 991px) {
+  .vertically-centered { 
+      width: 50%; 
+      padding: 3%;
+    }
+ }
+
+
+@media (min-width: 1199px) {
+  .vertically-centered { 
+      width: 40%; 
+      padding: 3%;
+    }
+ }

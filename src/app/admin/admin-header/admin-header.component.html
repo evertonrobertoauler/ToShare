@@ -1,0 +1,12 @@
+<div class="mdl-layout__header-row">
+
+      <span class="logo-text" style="color:white">OWL Controller</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-button mdl-js-button nav-btn" routerLink="/admin">Home</a>
+        <a class="mdl-button mdl-js-button nav-btn" routerLink="/admin/add-post">New Article</a>
+         <a class="mdl-button mdl-js-button nav-btn" routerLink="/admin/drafts">Drafts</a>
+         <a *ngIf="isloggedin" class="mdl-button mdl-js-button nav-btn" (click)="logout()">logout</a>
+      </nav>
+    </div>
+

@@ -1,0 +1,42 @@
+<div class="spinner" *ngIf="isvalidating">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+
+
+<div class="container-fluid" style="background: url('assets/images/loginbg.jpg');" [style.opacity]="isvalidating == true ? 0.6 : 1">
+<div class="layer"></div>
+
+<div class="mdl-grid" style="width: 100%">
+  <div class="mdl-layout-spacer"></div>  
+  <div class="vertically-centered">
+  <div class="mdl-cell mdl-cell--6-col">            
+      <form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm">
+        <h3 class="form-signin-heading" style="color: white !important">Please sign in</h3>
+                    <div class="mdl-textfield mdl-js-textfield">
+                      <input type="email" id="email" name="email" class="mdl-textfield__input" placeholder="Email address" required autofocus [(ngModel)]="user.email"
+                        #email="ngModel">
+                      <label class="mdl-textfield__label" for="sample1">Email</label>
+                    </div>
+
+                    <div [hidden]="email.valid || email.pristine" class="mdl-textfield__error">
+                      Email is required
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                      <input type="password" id="password" class="mdl-textfield__input" placeholder="Password" required name="password" [(ngModel)]="user.password">
+                      <label class="mdl-textfield__label" for="sample1">Magical Words</label>
+                    </div>
+
+                    <div class="push-down"></div>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>
+      </form>
+  </div>  
+</div>
+<div class="mdl-layout-spacer"></div>
+</div>
+</div>

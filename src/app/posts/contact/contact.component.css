@@ -1,0 +1,54 @@
+.mdl-textfield{
+    width: 100%;
+}
+
+
+.alert{
+  padding: 20px;
+}
+
+
+ .alert-danger {    
+    background-color: #f44336;
+    color: white;
+}
+
+
+.alert-success{
+    background-color:#4CAF50;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
+
+.contact-container{
+  position: relative
+}
+
+.contact-loader-container{
+  position: absolute;
+  left: 50%;
+  top:30%;
+  z-index: 4;
+  height: 100vh;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+

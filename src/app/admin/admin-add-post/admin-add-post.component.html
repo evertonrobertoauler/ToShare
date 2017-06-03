@@ -1,0 +1,123 @@
+
+<div *ngIf="imageuploading;then loading else posterimage">
+
+    Waiting..</div>
+
+<ng-template #posterimage>
+    <div class="post-image" (click)="uploadpostimage()" [ngStyle]="{
+             'background-image': 'url(' + postimage + ')',
+             'background-size': 'cover',
+             'background-repeat': 'no-repeat',
+             'background-position': '50% 40%',
+             'position':'relative'
+
+             }">
+        <div class="image-creater" [ngStyle]="{'display':  imageplaceholder }">
+            <p><i class="fa fa-picture-o fa-4x" aria-hidden="true"></i></p>
+            <p>Upload a Post Image</p>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #loading>
+    <div class="loader">Loading...</div>
+</ng-template>
+
+<br>
+
+<div class="mdl-textfield mdl-js-textfield  ">
+    <input class="mdl-textfield__input" type="text" id="post-title" placeholder="How to Javascript ?" [(ngModel)]="title">
+    <label class="mdl-textfield__label" for="post-title"></label>
+</div>
+
+<tag-input [(ngModel)]='posttags' placeholder="Post Tags"></tag-input>
+
+<br>
+
+<ng2-dropdown>
+    <ng2-dropdown-button>
+        {{ category }}
+    </ng2-dropdown-button>
+    <ng2-dropdown-menu>
+        <ng2-menu-item *ngFor="let category of categories" (click)="onItemClicked(category)">
+            {{ category.value }}
+        </ng2-menu-item>
+    </ng2-dropdown-menu>
+</ng2-dropdown>
+
+<br>
+
+
+<div id="sticky">
+    <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" type="text" #simpleMDE placeholder="Type something, what do you think of javascript..."></textarea>
+        <label class="mdl-textfield__label" for="sample5"></label>
+    </div>
+</div>
+
+<!-- <textarea id="simpleMDE" #simpleMDE placeholder="Type something, what do you think of javascript..."></textarea> -->
+
+<button class="mdl-button mdl-js-button 
+mdl-button--raised mdl-js-ripple-effect 
+mdl-button--colored" (click)="preview.show()">Preview</button>
+
+
+<button class="mdl-button mdl-js-button 
+mdl-button--raised 
+mdl-js-ripple-effect 
+mdl-button--primary" (click)="onsaveindraft()" >
+
+<span>{{isnew == true ? "Save Post":" Save Changes"}}</span>
+</button>
+
+
+
+<button class="mdl-button mdl-js-button 
+mdl-button--raised 
+mdl-js-ripple-effect 
+mdl-button--accent" (click)="publishPost()">Publish Post</button>
+
+
+
+
+
+<br>
+
+
+
+<mdl-dialog #preview [mdl-dialog-config]="{
+              clickOutsideToClose: true,
+              styles:{'width': '60%',padding:'0'},
+              isModal:true,              
+              enterTransitionDuration: 400,
+             leaveTransitionDuration: 400}" (show)="onpreviewShow()" (hide)="onpreviewHide()">
+    <div class="mdl-dialog__content">
+        <div class="mdl-grid" style="padding:0px;">
+            <mdl-card mdl-shadow="4">
+                <div class="mdl-card__title" [ngStyle]="{'color': '#fff', 'height': '247px', 'background': 'url('+postimage+') center/cover'}">
+                    <div class="meta">
+                        <div class="title-author">
+                            <img src="assets/images/author.png" alt="Avatar image" width="40" height="40" style="border-radius: 50%;">
+                            <span>&nbsp;  Praveen Rana in                     
+                     <strong>
+                     {{category}} 
+                     </strong>                     
+                     </span> &nbsp;
+                            <span> <i class="fa fa-calendar" aria-hidden="true"></i> {{ currentdate | date : 'longDate' }} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h1 class="title-text">{{title}}</h1>
+                    <div class="mdl-card__supporting-text innercontent" *ngIf="content" [innerHTML]="content">
+                    </div>
+                </div>
+            </mdl-card>
+            <br>
+        </div>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button mdl-button (click)="preview.close()" mdl-ripple>Close</button>
+    </div>
+</mdl-dialog>

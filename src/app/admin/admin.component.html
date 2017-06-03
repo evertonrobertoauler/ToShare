@@ -1,0 +1,24 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+  <header class="mdl-layout__header">
+    <app-admin-header></app-admin-header>
+  </header>
+  <div class="mdl-layout__drawer">
+    <app-admin-sidenavbar></app-admin-sidenavbar>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--10-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
+          <router-outlet></router-outlet>
+        </div>
+         <div class="mdl-layout-spacer"></div>
+      </div>
+      <div class="mdl-mini-footer">
+        <app-admin-footer></app-admin-footer>
+      </div>
+    </div>
+  </main>
+</div>
+
+<dialog-outlet></dialog-outlet>

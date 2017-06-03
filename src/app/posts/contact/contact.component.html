@@ -1,0 +1,69 @@
+<div class="contact-container">
+
+ <div class="contact-loader-container" *ngIf="msgsending">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+    </div>
+  </div>
+
+  <div class="contact-form" [style.opacity] = "msgsending ? '0.4' : '1'" >
+    <form #contactForm="ngForm" (ngSubmit)="sendmsg()">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" name="sendername" placeholder="Your Name"  [(ngModel)]="msgobject.sendername" required>
+            <label class="mdl-textfield__label" for="sendername"></label>
+          </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="email" name="sendermail" placeholder="youremail@email.com" [(ngModel)]="msgobject.sendermail" required>
+            <label class="mdl-textfield__label" for="sendermail"></label>
+          </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+          <div class="mdl-textfield mdl-js-textfield">
+            <textarea class="mdl-textfield__input" 
+                      type="text" name="sendermsg" rows="10" placeholder="Drop me a line.." 
+                      [(ngModel)]="msgobject.sendermsg"
+              required></textarea>
+            <label class="mdl-textfield__label" for="sendermsg"></label>
+          </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+          <button [disabled]="!contactForm.valid" type="submit" class="mdl-button mdl-js-button 
+                   mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Send
+        </button>
+        </div>
+
+        <br>
+
+      </div>
+    </form>
+
+
+    <div *ngIf="msgdelivered" class="alert alert-success mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+        Thankyou for writing to me..!! 
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>        
+    </div>
+
+
+    <div *ngIf="deliveryfailed" class="alert alert-danger mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet">
+         Something went wrong...!!
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>        
+    </div>
+
+  </div>
+  
+</div>

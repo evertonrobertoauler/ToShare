@@ -1,0 +1,62 @@
+<div class="row myalert" *ngIf="postpublished">
+    <div class="alert alert-success" role="alert">
+        Post published successfully
+        <span class="float-right" style="padding-left: 20px">
+            <button (click)="publishalertoff()" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                <i class="material-icons">close</i>             
+            </button>
+        </span>
+    </div>
+</div>  
+
+
+<div *ngIf="postsavailable;then postcontent else loading">Waiting..</div>
+
+<ng-template #postcontent>
+    <div class="mdl-grid">
+        <div class="mdl-card mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-shadow--4dp" *ngFor="let post of posts | paginate: { itemsPerPage: 9, currentPage: page } ; let postindex = index ">
+            <figure class="mdl-card__media">
+                <img [src]="post.imagepath" alt="" />
+            </figure>
+            <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text post-title">{{post.title}}</h1>
+            </div>
+            <div class="mdl-card__supporting-text" [innerHTML]="post.content | truncate:180 ">
+
+            </div>
+            <div class="mdl-card__actions mdl-card--border">   
+                      <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;
+                        {{ post.date | date : 'longDate' }}
+                 
+
+                <div class="mdl-layout-spacer"></div>
+                <a [routerLink]="['/admin/add-post' , post._id]" class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+
+                <button (click)="delete(postindex)" class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--accent">
+                <i class="material-icons">delete</i>
+            </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pagination">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</ng-template>
+
+<ng-template #loading>     
+      <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>    
+</ng-template>

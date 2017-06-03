@@ -1,0 +1,10 @@
+
+  <div  style="text-align: center;margin-top: 8%">
+    <span class="logo-text" style="color:white">Hi, OWL </span>
+  </div>
+  <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" routerLink="/admin">Home</a>
+    <a class="mdl-navigation__link" routerLink="/admin/add-post">New Article</a>
+    <a class="mdl-navigation__link" routerLink="/admin/drafts">Drafts</a>
+    <a *ngIf="isloggedin" class="mdl-navigation__link" (click)="logout()">logout</a>
+  </nav>
