@@ -2,29 +2,29 @@
 
 <ng-template #postcontent> -->
 
-    
-        <div  *ngFor="let post of posts | async | paginate: { itemsPerPage: 5, currentPage: page }">            
+
+        <div  *ngFor="let post of posts | paginate: { itemsPerPage: 5, currentPage: page }">
                 <mdl-card mdl-shadow="4">
                     <div class="mdl-card--border title-author">
-                        <img src="assets/images/profilepic.png" alt="Avatar image" width="40" height="40" style="border-radius: 50%;">                                                
+                        <img src="assets/images/profilepic.png" alt="Avatar image" width="40" height="40" style="border-radius: 50%;">
                         <span>&nbsp;  <!-- {{ post.author }} --> Praveen posted in
                             <a [routerLink]="['category', post.category]" style="text-decoration: none;color:black"  >
                              <strong>
-                                 {{post.category}} 
+                                 {{post.category}}
                         </strong>
                         </a>
                         </span> &nbsp;
-                        <span  class="mdl-layout--large-screen-only" > <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date : 'longDate' }} </span> 
-                    </div>  
+                        <span  class="mdl-layout--large-screen-only" > <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date : 'longDate' }} </span>
+                    </div>
 
                     <mdl-card-title [ngStyle]="{'color': '#fff', 'height': '247px', 'background': 'url('+post.imagepath+') center/cover'}">
                         <h2 class="title-text" mdl-card-title-text>
-                            <a [routerLink]="['/posts', post.slugurl]"> 
+                            <a [routerLink]="['/posts', post.slugurl]">
                                {{post.title}}
                                </a>
                         </h2>
-                    </mdl-card-title> 
-                    
+                    </mdl-card-title>
+
 
                     <div class="mdl-card__supporting-text innercontent" [innerHTML]="post.content | truncate : 300 "></div>
 
@@ -32,23 +32,23 @@
 
                         <a [routerLink]="['/posts', post.slugurl]" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" >Read More</a>
 
-                         <div class="mdl-layout-spacer"></div>                        
+                         <div class="mdl-layout-spacer"></div>
                          <span class="mdl-layout--small-screen-only"> <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date : 'longDate' }} </span>
                     </mdl-card-actions>
                 </mdl-card>
-                <br>            
+                <br>
         </div>
-        
+
         <div class="pagination">
             <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
 
 
         <div *ngIf="!postavailable" class="mdl-layout-spacer"></div>
-   
+
 <!-- </ng-template> -->
 
-<!-- 
+<!--
 <ng-template #loading>
      <div class="sk-cube-grid">
         <div class="sk-cube sk-cube1"></div>
