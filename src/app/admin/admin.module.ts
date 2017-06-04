@@ -11,7 +11,7 @@ import { AdminSidenavbarComponent } from './admin-sidenavbar/admin-sidenavbar.co
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { adminroutes } from './admin.routes';
 
-import { TagInputModule } from 'ng2-tag-input';
+//import { TagInputModule } from 'ng2-tag-input';
 import { Ng2DropdownModule } from 'ng2-material-dropdown';
 
 import { SharedModule } from '../shared/shared.module'
@@ -24,7 +24,7 @@ import { SharedModule } from '../shared/shared.module'
       FormsModule,
       HttpModule,
       adminroutes,
-      TagInputModule,
+      //TagInputModule,
       Ng2DropdownModule,      
       SharedModule,
   ],
